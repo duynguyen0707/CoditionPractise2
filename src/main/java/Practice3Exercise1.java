@@ -29,54 +29,77 @@ public class Practice3Exercise1 {
         }
         System.out.print("Enter a year: ");
         year=sc.nextInt();
-
-//        if(year<1970){
-//            System.out.println("Year must be >1970");
-//             }
-//       else {
             if ( year%400==0 ||(year%100!=0 && year%4==0)) { // năm nhuần
                 if (month == 2) {
                     if (date >= 1 && date <= 29) {
                         System.out.println("Valid date:" + date + "/" + month + "/" + year);
                         System.out.println("This month have 29 days");
-                    } else {
+                        if(date==29){
+                            System.out.println("Next day is: "+ "01" +"/" + (month+1) + "/" + year);
+                        }
+                        else {
+                            System.out.println("Next day is: "+ date+1 +"/" + month + "/" + year);
+                        }
+                    }
+                    else {
                         System.out.println("Do not have this day");
-                                    }
+                     }
 
                 }
             }
-            if( year%100!=0 || year%400!=0) { // năm ko nhuần
+            else // năm ko nhuần
+    {
                 if (month == 2) {
                     if (date >= 1 && date <= 28) {
                         System.out.println("This is a valid day:" + date + "/" + month + "/" + year);
                         System.out.println("This month have 28 days");
+                        if(date==28){
+                            System.out.println("Next day is: "+ "01" +"/" + (month+1) + "/" + year);
+                        }
+                        else {
+                            System.out.println("Next day is: "+ date+1 +"/" + month + "/" + year);
+                        }
                     }
-                    if (date>=29){
+                    else {
                         System.out.println("Không phải năm nhuần - Ko có ngày này");
-                        return;
                     }
+               }
 
-                }
-                if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12 && date<=31) {
+              if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12 ) {
+                    if(date==31) {
+                        System.out.println("Ngày tháng hợp lệ:" + date + "/" + month + "/" + year);
+                        System.out.println("Tháng co 31 ngày");
+                        System.out.println("Next day is: " + "01" + "/" + (month + 1) + "/" + year);
+                    } else if (date<31){
+                        System.out.println("Ngày tháng hợp lệ:" + date + "/" + month + "/" + year);
+                        System.out.println("Tháng co 31 ngày");
+                        System.out.println("Next day is: "+ date+1 +"/" + month + "/" + year);
+                    } else {
+                        System.out.println("Ngày tháng không hợp lệ: " + date + "/" + month + "/" + year);
+                    }
+              }
 
-                    System.out.println("Ngày tháng hợp lệ:" + date + "/" + month + "/" + year);
-                    System.out.println("Tháng co 31 ngày");
-                }
-                if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12 && date>31) {
-                    System.out.println("Ngày tháng ko hợp lệ:" + date + "/" + month + "/" + year);
 
-                }
-
-                if (month==4 || month==6 || month==9||month==11){
+              if (month==4 || month==6 || month==9||month==11){
                     if(date<=30){
-                        System.out.println("Ngày tháng hợp lệ check 2:" + date + "/" + month + "/" + year);
+                        System.out.println("Ngày tháng hợp lệ:" + date + "/" + month + "/" + year);
                         System.out.println("Tháng co 30 ngày");
+                        if(date==30){
+                            System.out.println("Next day is: "+ "01" +"/" + (month+1) + "/" + year);
+                        }
+                        else {
+                            System.out.println("Next day is: "+ date+1 +"/" + month + "/" + year);
+                        }
                     }
                     else {
                         System.out.println("Ngày tháng không hợp lệ: " + date + "/" + month + "/" + year);
                     }
                 }
+                else
+                {
+                    System.out.println("Ngày tháng ko hợp lệ:" + date + "/" + month + "/" + year);
+                }
+
             }
-       //  }
-    }
+       }
 }
