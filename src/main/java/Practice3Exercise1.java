@@ -30,11 +30,11 @@ public class Practice3Exercise1 {
         System.out.print("Enter a year: ");
         year=sc.nextInt();
 
-        if(year<1970){
-            System.out.println("Year must be >1970");
-             }
-       else {
-            if ( year%100==0 && year%400==0) { // năm nhuần
+//        if(year<1970){
+//            System.out.println("Year must be >1970");
+//             }
+//       else {
+            if ( year%400==0 ||(year%100!=0 && year%4==0)) { // năm nhuần
                 if (month == 2) {
                     if (date >= 1 && date <= 29) {
                         System.out.println("Valid date:" + date + "/" + month + "/" + year);
@@ -77,6 +77,6 @@ public class Practice3Exercise1 {
                     }
                 }
             }
-         }
+       //  }
     }
 }
